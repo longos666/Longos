@@ -17,5 +17,16 @@ wiki上面写道MQTT 协议定义了两种网络实体：消息代理（message 
 设置不允许匿名登录  
 allow_anonymous false  
 设置账户密码文件位置为  
-password_file /mos/pwfile.example
+password_file /mos/pwfile.example  
 安装的文件中有提供一个设置账密码的文件pwfile.example，所以没有参照视频里再重新新建一个text文本了。
+
+2.  插入新用户名及密码，输入密码时不会显示。打开CMD并进入mosquitto根目录(安装目录)输入  
+mosquitto_passwd -c /MosquittoTest/pwfile.example FirstUserName （使用-c 参数会导致清空密码文件，重新插入用户）  
+mosquitto_passwd /MosquittoTest/pwfile.example SecondUserName （不使用-c 表示追加用户，不影响旧用户）  
+这里的FirstUserName和SecondUserName是用户名 可以自己命名，创建成功后在pwfile.example会有显示。
+
+3.  启动mosquitto 进行测试。    
+首先启动第一个cmd窗口启动服务：mosquitto.exe -c mosquitto.conf  
+然后启动第二个cmd窗口订阅'dissun/topic'主题：mosquitto_sub -u (设置的用户名) -P (对应的密码) -t 'dissun/topic' -v  
+最后启动第三个cmd窗口发布订阅信息：mosquitto_pub -u  (设置的用户名)  -P (对应的密码) -t 'dissun/topic' -m '(要发送的信息)'  
+发送后在第二个窗口回车就会显示第三个窗口发送的内容
