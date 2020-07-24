@@ -13,12 +13,10 @@ wiki上面写道MQTT 协议定义了两种网络实体：消息代理（message 
 **Client**(A topic) -- Post/Push--  **Server**---Post/Push----**Client**(Another topic/Which you want to Post to).
 
 
-在官网下载完mosquitto后执行安装文件。Mosquitto默认安装路径是在“C:\Program Files\mosquitto”，安装目录的完整路径中，不能出现空格，否则在命令行就无法通过，于是我改成了d:\mos”。按照发的视频里，先在配置文件mosquitto.conf中，加入下面文本
-
-#设置不允许匿名登录
+1.  在官网下载完mosquitto后执行安装文件。Mosquitto默认安装路径是在“C:\Program Files\mosquitto”，安装目录的完整路径中，不能出现空格，否则在命令行就无法通过，于是我改成了d:\mos”。按照发的视频里，先在配置文件mosquitto.conf中，加入下面文本
+设置不允许匿名登录
 allow_anonymous false		
-
-#设置账户密码文件位置为
+设置账户密码文件位置为
 password_file /mos/pwfile.example
 
 
