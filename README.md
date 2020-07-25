@@ -1,6 +1,8 @@
 # MQTT客户端安装和配置
 一开始，我不知道MQTT，MQTT服务器，Node-red 和node.js的关的关系。很模糊，无从下手。杨老师发的安装说明很模糊，看不懂,甚至不知道MQTT Broker就是MQTT客户端。
 
+![image]https://github.com/longos666/Longos/blob/master/Image/1.png
+
 从这张图上能看出MQTT Broker是什么。
 MQTT Broker 有很多种，Mosquitto的官网中是这样描述自己的
 
