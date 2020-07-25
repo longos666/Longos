@@ -36,3 +36,35 @@ mosquitto_passwd /MosquittoTest/pwfile.example SecondUserName （不使用-c 表
 
 1. 无法启动mosquitto，mosquitto broker在任务管理器services类中一直显示starting 状态   
  在processes中找到mosquitto.exe 结束任务 然后再在cmd 中重新启动
+ 
+ # Node Red 安装及环境配置
+ 
+ 先在官网下载node.js http://nodejs.org  
+ 安装过程全部点next  
+ 
+ 安装完后打开power shell 输入 (一个输完回车再另一个)  
+ node -v  
+ npm  -v  
+ 版本号显示正常则node.js安装成功  
+ NPM是随同NodeJS一起安装的包管理工具
+ 在power shell运行命令  
+ npm install -g --unsafe-perm node-red
+ 
+ 我第一次安装出错，找了下重新安装的方法   
+ 在power shell运行命令  npm cache clean --force  
+ 再运行 npm install -g --unsafe-perm node-red
+ 
+ 然后安装成功
+ 再输入node-red 运行
+ 
+ ## 可能出现的问题
+ 
+无法加载文件 C:\Users\liuzidong\AppData\Local\Temp\chocolatey\chocInstall\tools\chocolateyInstall.ps1，因为在此系统上禁止运行脚本。有关详细信息，请参阅 https:/go.microsoft.com/fwlink/?LinkID=135170 中的 about_Execution_Policies。所在位置 行:242 字符: 3+ & $chocInstallPS1+   ~~~~~~~~~~~~~~~    + CategoryInfo          : SecurityError: (:) []，PSSecurityException    + FullyQualifiedErrorId : UnauthorizedAccess
+
+出现以上报错，要以管理员运行power shell   
+运行set-ExecutionPolicy RemoteSigned
+
+因为首次在计算机上启动 Windows PowerShell 时，现用执行策略很可能是 Restricted（默认设置）。    
+Restricted 策略不允许任何脚本运行。
+然后输入Y 再进行之前的操作就能成功安装node-red
+默认每次打开node red 界面时都要在power shell 中输入node-red 
