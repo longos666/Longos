@@ -30,3 +30,9 @@ mosquitto_passwd /MosquittoTest/pwfile.example SecondUserName （不使用-c 表
 然后启动第二个cmd窗口订阅'dissun/topic'主题：mosquitto_sub -u (设置的用户名) -P (对应的密码) -t 'dissun/topic' -v  
 最后启动第三个cmd窗口发布订阅信息：mosquitto_pub -u  (设置的用户名)  -P (对应的密码) -t 'dissun/topic' -m '(要发送的信息)'  
 发送后在第二个窗口回车就会显示第三个窗口发送的内容
+
+
+## 可能出现的问题
+
+1. 无法启动mosquitto，mosquitto broker在任务管理器services类中一直显示starting 状态   
+ 在processes中找到mosquitto.exe 结束任务 然后再在cmd 中重新启动
